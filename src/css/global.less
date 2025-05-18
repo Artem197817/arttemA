@@ -1,3 +1,5 @@
+@import 'variabless.less';
+
 html {
     scroll-behavior: smooth;
   }
@@ -21,14 +23,14 @@ html {
   }
   
   h2 {
-    .days;
+    .days();
     font-size: 48px;
     text-align: center;
     letter-spacing: 3px;
   }
   
   h3 {
-    .days;
+    .days();
     font-size: 24px;
     text-align: center;
     letter-spacing: 3px;
@@ -36,7 +38,9 @@ html {
   
   .button {
     border-radius: 30px;
-    .flex-center-center;
+    padding-right: 15px;
+    padding-left: 15px;
+    .flex-center-center();
     box-sizing: border-box;
     height: 48px;
     cursor: pointer;
@@ -47,6 +51,15 @@ html {
     text-align: center;
     color: var(--04151C);
     text-decoration: none;
+
+    &.button-activate{
+      position: absolute;
+      top: -60px;
+      right: 15px;
+      background: var(--fbf5b6op05);
+      font-size: 16px;
+      height: 36px;
+    }
   }
 
 

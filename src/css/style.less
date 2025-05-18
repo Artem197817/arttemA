@@ -6,7 +6,7 @@
 
 
 .title {
-  background-image: url("../../images/title-trim.png");
+  background-image: url("../static/images/title-trim.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@
 .header-container {
   padding-bottom: 12px;
   padding-top: 12px;
-  .flex-center-between;
+  .flex-center-between();
   position: relative;
   box-shadow: 0 35px 24px -34px var(--fbf5b6);
 
@@ -39,7 +39,7 @@
   .menu {
     ul {
       list-style: none;
-      .flex-center-center;
+      .flex-center-center();
 
       .menu-item {
         margin-left: 24px;
@@ -69,8 +69,7 @@
     width: 200px;
     border-radius: 15px;
     border: 2px solid; 
-    border-image: linear-gradient(to left top, #fbf5b6, transparent) 0.8;
-    border-image-slice: 1;
+    border-image: linear-gradient(to left top, #fbf5b6, transparent) 1;
     background-color: var(--04151Cop08);
     z-index: 9999;
   
@@ -116,7 +115,7 @@
 .title-container {
   padding-bottom: 274px;
   padding-top: 129px;
-  .flex-center-center;
+  .flex-center-center();
 
   .title-info {
 
@@ -202,7 +201,7 @@
 }
 
 .portfolio {
-  background-image: url("../../images/slider-background.png");
+  background-image: url("../static/images/slider-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -254,7 +253,7 @@
   position: relative;
 
   .order-container {
-    .flex-center-between;
+    .flex-center-between();
     padding-top: 120px;
     padding-bottom: 120px;
 
@@ -293,7 +292,7 @@
       }
 
       .order-form {
-        .flex-center-center;
+        .flex-center-center();
         flex-direction: column;
         margin-right: 48px;
 
@@ -307,7 +306,7 @@
             outline: none;
             box-sizing: border-box;
             border-radius: 20px;
-            .flex-center-center;
+            .flex-center-center();
             font-size: 24px;
             padding: 0 24px;
             background-color: var(--04151C);
@@ -338,12 +337,14 @@
 }
 
 .about {
-  background-image: url("../../images/footer.png");
+  background-image: url("../static/images/footer.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
 
   .about-container {
+
     padding-top: 144px;
     padding-bottom: 156px;
 
@@ -375,7 +376,7 @@
 
 .footer-container {
   box-shadow: 0 -35px 24px -34px var(--fbf5b6);
-  .flex-center-between;
+  .flex-center-between();
   padding-top: 48px;
   padding-bottom: 48px;
 

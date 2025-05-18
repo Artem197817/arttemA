@@ -1,123 +1,112 @@
-import {Dashboard} from "./components/dashboard";
-import {Login} from "./components/login";
-import {SignUp} from "./components/sign-up";
-import {Logout} from "./components/logout";
-import {AuthUtil} from "./utils/auth-util";
-import {Income} from "./components/income/income";
-import {Layout} from "./components/layout";
-import {Expenses} from "./components/expenses/expenses";
+import {Main} from "./components/main";
+
 
 export class Router {
 
     constructor() {
         this.pageTitleElement = document.getElementById("page-title");
-        this.contentElement = document.getElementById("content");
         this.adminLteStyleElement = document.getElementById("adminlte_style");
-
+        this.contentElement = document.getElementById('content');
+        this.linkStyles = document.getElementById('styles');
 
         this.routes = [
             {
                 route: '#/',
                 title: 'Главная',
-                template: '/templates/pages/main.html',
-               // useLayout: '/templates/layout.html',
-              //  useSecondLayout: '/templates/second-layout.html',
-              //  requiresAuth: true,
-                styles: [
-                    'layout.css',
-                    'finance.css',
-                ],
+                template: '/templates/main.html',
+                styles: ['style.less'],
+
                 load: () => {
-                    new Dashboard();
+                    new Main();
                 }
 
             },
-            {
-                route: '#/404',
-                title: 'Page Not Found',
-                useLayout: false,
-                useSecondLayout:false,
-                template: '/templates/pages/404.html',
-            },
-            {
-                route: '#/login',
-                title: 'Login',
-                useLayout: false,
-                useSecondLayout: false,
-                template: '/templates/pages/login.html',
-                load: () => {
-
-                    new Login(this.openNewRoute.bind(this));
-                },
-                unload: () => {
-                    document.body.classList.remove('login-page');
-                    document.body.style.height = 'auto';
-                },
-                styles: [
-                    // 'icheck-bootstrap.min.css'
-                ]
-            },
-            {
-                route: '#/sign-up',
-                title: 'Sign Up',
-                template: '/templates/pages/sign-up.html',
-                useLayout: false,
-                useSecondLayout: false,
-                load: () => {
-
-                    new SignUp();
-                },
-                unload: () => {
-                    document.body.classList.remove('register-page');
-                    document.body.style.height = 'auto';
-                },
-                styles: [
-                    // 'icheck-bootstrap.min.css'
-                ]
-            },
-            {
-            route: '#/logout',
-                load: () => {
-                new Logout();
-                }
-            },
-            {
-                route: '#/income',
-                title: 'Доходы',
-                template: '/templates/pages/finance.html',
-                useLayout: '/templates/layout.html',
-                useSecondLayout: false,
-                requiresAuth: true,
-                load: () => {
-                    new Layout();
-                    new Income();
-                },
-                unload: () => {
-
-                },
-                styles: [
-                    'finance.css'
-                ]
-            },
-            {
-                route: '#/expenses',
-                title: 'Расходы',
-                template: '/templates/pages/finance.html',
-                useLayout: '/templates/layout.html',
-                useSecondLayout: false,
-                requiresAuth: true,
-                load: () => {
-                    new Layout();
-                    new Expenses();
-                },
-                unload: () => {
-
-                },
-                styles: [
-                    'finance.css'
-                ]
-            },
-
+            // {
+            //     route: '#/404',
+            //     title: 'Page Not Found',
+            //     useLayout: false,
+            //     useSecondLayout:false,
+            //     template: '/templates/pages/404.html',
+            // },
+            // {
+            //     route: '#/login',
+            //     title: 'Login',
+            //     useLayout: false,
+            //     useSecondLayout: false,
+            //     template: '/templates/pages/login.html',
+            //     load: () => {
+            //
+            //         new Login(this.openNewRoute.bind(this));
+            //     },
+            //     unload: () => {
+            //         document.body.classList.remove('login-page');
+            //         document.body.style.height = 'auto';
+            //     },
+            //     styles: [
+            //         // 'icheck-bootstrap.min.css'
+            //     ]
+            // },
+            // {
+            //     route: '#/sign-up',
+            //     title: 'Sign Up',
+            //     template: '/templates/pages/sign-up.html',
+            //     useLayout: false,
+            //     useSecondLayout: false,
+            //     load: () => {
+            //
+            //         new SignUp();
+            //     },
+            //     unload: () => {
+            //         document.body.classList.remove('register-page');
+            //         document.body.style.height = 'auto';
+            //     },
+            //     styles: [
+            //         // 'icheck-bootstrap.min.css'
+            //     ]
+            // },
+            // {
+            // route: '#/logout',
+            //     load: () => {
+            //     new Logout();
+            //     }
+            // },
+            // {
+            //     route: '#/income',
+            //     title: 'Доходы',
+            //     template: '/templates/pages/finance.html',
+            //     useLayout: '/templates/layout.html',
+            //     useSecondLayout: false,
+            //     requiresAuth: true,
+            //     load: () => {
+            //         new Layout();
+            //         new Income();
+            //     },
+            //     unload: () => {
+            //
+            //     },
+            //     styles: [
+            //         'finance.css'
+            //     ]
+            // },
+            // {
+            //     route: '#/expenses',
+            //     title: 'Расходы',
+            //     template: '/templates/pages/finance.html',
+            //     useLayout: '/templates/layout.html',
+            //     useSecondLayout: false,
+            //     requiresAuth: true,
+            //     load: () => {
+            //         new Layout();
+            //         new Expenses();
+            //     },
+            //     unload: () => {
+            //
+            //     },
+            //     styles: [
+            //         'finance.css'
+            //     ]
+            // },
+            //
 
         ];
     }
@@ -127,10 +116,6 @@ export class Router {
 
         if (!newRoute) {
             window.location.href = "#/";
-            return;
-        }
-        if (newRoute.requiresAuth && !AuthUtil.getAuthInfo(AuthUtil.accessTokenKey)) {
-            window.location.href = '#/login'; // Перенаправляем на страницу логина
             return;
         }
 
@@ -243,14 +228,11 @@ export class Router {
                         console.error(`Failed to load stylesheet: ${link.href}`);
                     };
 
-                    document.head.insertBefore(link, this.adminLteStyleElement);
+                    document.head.insertBefore(link, this.linkStyles);
                 }
             });
         }
     }
 
-    async openNewRoute(url) {
-        const currentRoute = window.location.pathname;
-        await this.activateRoute(null, currentRoute);
-    }
+
 }
