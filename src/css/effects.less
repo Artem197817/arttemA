@@ -205,7 +205,7 @@
     width: 100%;
     height: 400px;
     overflow: hidden;
-    background: url("../static/images/bg2.png") center center;
+    //background: url("images/bg2.png") center center;
     background-size: cover;
     z-index: -1;
     background-attachment: fixed;
@@ -363,4 +363,68 @@
       filter: drop-shadow(calc(var(--size) * .8) calc(var(--size) * .8) 10px rgba(0, 0, 30, .4))
     }
   }
-  
+
+#neuro {
+    position: relative;
+    height: 400px;
+    margin: 0 0;
+    background-color: #000;    
+   // background-image: url(photo.jpg); 
+    background-size: cover;
+    background-position: center;    
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;    
+    z-index: 1;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15), 0 12px 18px rgba(0,0,0,0.1);    
+}
+#neuro{
+&:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    z-index: 2;
+}
+}
+#neuro canvas {
+    position: relative;
+    z-index: 3;
+}
+#neuro span {
+    color: #FFF;
+    position: absolute;
+    font-size: 50px;
+    line-height: 1.3;
+    font-weight: normal;
+    font-family: Impact, Charcoal, sans-serif;
+    text-shadow: 0 0 40px #000, 0 40px 100px #000, 0 -40px 100px #000, 150px 0 100px #000, -150px 0 100px #000, 0 0 4px rgba(0,0,0,0.2), 0 2px 6px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    margin: 30px 0;
+    display: block;
+    z-index: 4;
+}
+#neuro span:after {
+    content: attr(data-title);
+    position: absolute;
+    font-size: 100px;
+    text-shadow: 0 40px 100px #000, 0 -40px 100px #000;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #FFF;
+    opacity: 0.2;
+    text-transform: uppercase;
+    z-index: -1;
+}
+
