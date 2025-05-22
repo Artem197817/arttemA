@@ -59,6 +59,7 @@ html {
       background: var(--fbf5b6op05);
       font-size: 16px;
       height: 36px;
+      z-index: 35;
     }
   }
 
@@ -80,5 +81,119 @@ html {
       cursor: pointer;
       text-decoration: none;
       color: var(--fbf5b6);
+    }
+  }
+
+
+  .header-container {
+    padding-bottom: 12px;
+    padding-top: 12px;
+    .flex-center-between();
+    position: relative;
+    box-shadow: 0 35px 24px -34px var(--fbf5b6);
+  
+    .burger {
+      margin-left: 30px;
+      display: none;
+  
+      swg rect {
+        fill: var(--fbf5b6);
+      }
+    }
+  
+    .menu {
+      ul {
+        list-style: none;
+        .flex-center-center();
+  
+        .menu-item {
+          margin-left: 24px;
+          transition: 0.3ms ease-out;
+  
+          .menu-item-link {
+            text-decoration: none;
+            color: var(--fbf5b6);
+            font-size: 18px;
+          }
+  
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  
+    .menu-hide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 25px;
+      display: none;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 200px;
+      border-radius: 15px;
+      border: 2px solid; 
+      border-image: linear-gradient(to left top, #fbf5b6, transparent) 1;
+      background-color: var(--04151Cop08);
+      z-index: 9999;
+    
+   
+      .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+  
+      .menu-title {
+        .days();
+        font-size: 28px;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        margin-top: 30px;
+      }
+      .menu {
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+    
+          .menu-item {
+            margin-bottom: 20px;
+            transition: 0.3ms ease-out;
+    
+            .menu-item-link {
+              text-decoration: none;
+              color: var(--fbf5b6);
+              font-size: 16px;
+            }
+    
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-container {
+    box-shadow: 0 -35px 24px -34px var(--fbf5b6);
+    .flex-center-between();
+    padding-top: 48px;
+    padding-bottom: 48px;
+  
+    .contacts {
+      align-items: flex-start;
+    }
+  
+    .logo {
+      img {
+        width: 132px;
+      }
+    }
+  
+    .rights {
+      font-size: 12px;
     }
   }

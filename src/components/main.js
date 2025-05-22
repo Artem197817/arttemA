@@ -7,7 +7,13 @@ export class Main {
 
     waterElement = $('#water')
     isWaterActive = false;
+    isNeuroActive = false;
+    isFogActive = false;
+    isBallActive = false;
     buttonActivateWater = document.getElementById('water-button');
+    buttonActivateNeuro = document.getElementById('neuro-button');
+    buttonActivateFog = document.getElementById('fog-button');
+    buttonActivateBall = document.getElementById('ball-button');
 
     constructor() {
         this.init();
@@ -43,7 +49,40 @@ export class Main {
                 }
             })
         }
-
+        const bgFogElement = document.getElementById('fog');
+        if (this.buttonActivateFog) {
+            this.buttonActivateFog.addEventListener('click', (e) => {
+                if (!this.isFogActive) {
+                    e.preventDefault();
+                    this.buttonActivateFog.innerText = 'Выключить'
+                    this.isFogActive = true
+                    bgFogElement.classList.add('fog');
+                    
+                } else {
+                    e.preventDefault();
+                    this.buttonActivateFog.innerText = 'Активировать эффект'
+                    this.isFogActive = false;
+                    bgFogElement.classList.remove('fog');
+                }
+            })
+        }
+        const bgBallElement = document.getElementById('ball');
+        if (this.buttonActivateBall) {
+            this.buttonActivateBall.addEventListener('click', (e) => {
+                if (!this.isBallActive) {
+                    e.preventDefault();
+                    this.buttonActivateBall.innerText = 'Выключить'
+                    this.isBallActive = true
+                    bgBallElement.classList.add('ball');
+                    
+                } else {
+                    e.preventDefault();
+                    this.buttonActivateBall.innerText = 'Активировать эффект'
+                    this.isBallActive = false;
+                    bgBallElement.classList.remove('ball');
+                }
+            })
+        }
     }
 
     carouselInit() {
@@ -166,7 +205,10 @@ const shader = {
     color = color * noise;
     gl_FragColor = vec4(color, noise);
     }`
-};        
+};    
+let isActivationNeuro = false;
+let animationId = null;   
+
 const cont = document.getElementById('neuro');
 const canvasEl = document.createElement("canvas");
 const parentRect = cont.getBoundingClientRect();
@@ -239,6 +281,7 @@ function initShader() {
 }
  
 function render() {
+    if (!isActivationNeuro) return; 
     const currentTime = performance.now();
     pointer.x += (pointer.tX - pointer.x) * .5;
     pointer.y += (pointer.tY - pointer.y) * .5;
@@ -246,7 +289,7 @@ function render() {
     gl.uniform2f(uniforms.u_pointer_position, pointer.x / cont.offsetWidth, 1 - pointer.y / cont.offsetHeight);
     gl.uniform1f(uniforms.u_scroll_progress, window["pageYOffset"] / (2 * cont.offsetHeight));
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    requestAnimationFrame(render);
+    animationId = requestAnimationFrame(render); 
 }
 function resizeCanvas() {
     canvasEl.width =   parentRect.width//cont.offsetWidth * devicePixelRatio;
@@ -268,6 +311,38 @@ function setupEvents() {
         pointer.tX = eX - cont.offsetLeft;
         pointer.tY = eY - cont.offsetTop;
     }
+}
+function startAnimation() {
+    if (!isActivationNeuro) {
+        isActivationNeuro = true;
+      render(); // Запускаем цикл
+    }
+  }
+  
+  function stopAnimation() {
+    if (isActivationNeuro) {
+        isActivationNeuro = false;
+      cancelAnimationFrame(animationId); // Останавливаем цикл
+      animationId = null;
+      // Очищаем холст (опционально)
+      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); 
+    }
+  }
+
+  if (this.buttonActivateNeuro) {
+    this.buttonActivateNeuro.addEventListener('click', (e) => {
+        if (!this.isNeuroActive) {
+            e.preventDefault();
+            this.buttonActivateNeuro.innerText = 'Выключить'
+            this.isNeuroActive = true
+            startAnimation();
+        } else {
+            e.preventDefault();
+            this.buttonActivateNeuro.innerText = 'Активировать эффект'
+            this.isNeuroActive = false;
+            stopAnimation()
+        }
+    })
 }
     }
 }

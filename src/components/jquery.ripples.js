@@ -103,16 +103,17 @@ function loadConfig() {
 	// Check for each supported texture type if rendering to it is supported
 	var config = null;
 
-	for (var i = 0; i < configs.length; i++) {
-		gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 32, 32, 0, gl.RGBA, configs[i].type, null);
-
-		gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
-		if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE) {
-			config = configs[i];
-			break;
+	if(configs){
+		for (var i = 0; i < configs.length; i++) {
+			gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 32, 32, 0, gl.RGBA, configs[i].type, null);
+	
+			gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+			if (gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE) {
+				config = configs[i];
+				break;
+			}
 		}
 	}
-
 	return config;
 }
 
@@ -130,7 +131,7 @@ function createImageData(width, height) {
 function translateBackgroundPosition(value) {
 	var parts = value.split(' ');
 
-	if (parts.length === 1) {
+	if (parts && parts.length === 1) {
 		switch (value) {
 			case 'center':
 				return ['50%', '50%'];
@@ -377,9 +378,12 @@ Ripples.prototype = {
 			})
 			.on('touchmove.ripples, touchstart.ripples', function(e) {
 				var touches = e.originalEvent.changedTouches;
-				for (var i = 0; i < touches.length; i++) {
-					dropAtPointer(touches[i]);
+				if(touches){
+					for (var i = 0; i < touches.length; i++) {
+						dropAtPointer(touches[i]);
+					}
 				}
+				
 			})
 
 			// ...and only a big ripple on mouse down events.
@@ -865,8 +869,10 @@ $.fn.ripples = function(option) {
 	if (!config) {
 		throw new Error('Your browser does not support WebGL, the OES_texture_float extension or rendering to floating point textures.');
 	}
+	if(arguments){
+		var args = (arguments.length > 1) ? Array.prototype.slice.call(arguments, 1) : undefined;
 
-	var args = (arguments.length > 1) ? Array.prototype.slice.call(arguments, 1) : undefined;
+	}
 
 	return this.each(function() {
 		var $this = $(this),
