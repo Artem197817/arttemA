@@ -1,5 +1,5 @@
 import {Main} from "./components/main";
-
+import {Order} from "./components/order";
 
 export class Router {
 
@@ -18,6 +18,17 @@ export class Router {
 
                 load: () => {
                     new Main();
+                }
+
+            },
+            {
+                route: '#/order',
+                title: 'Заказ',
+                template: '/templates/order.html',
+                styles: ['order.less'],
+
+                load: () => {
+                    new Order();
                 }
 
             },
@@ -174,7 +185,7 @@ export class Router {
 
             if (currentRoute && currentRoute.styles && currentRoute.styles.length > 0) {
                 currentRoute.styles.forEach(style => {
-                    const styleLink = document.querySelector(`link[href='/css/${style}']`);
+                    const styleLink = document.querySelector(`link[href='css/${style}']`);
                     if (styleLink) {
                         styleLink.remove(); // Удаляем стиль, если он существует
                     }
@@ -221,7 +232,7 @@ export class Router {
                 if (!existingStyleLink) { // Проверяем, существует ли стиль
                     const link = document.createElement("link");
                     link.rel = "stylesheet";
-                    link.href = '/css/' + style;
+                    link.href = 'css/' + style;
 
                     // Обработка ошибок при загрузке стиля
                     link.onerror = () => {

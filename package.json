@@ -25,6 +25,7 @@
     "http-server": "^14.1.1",
     "jquery": "^3.7.1",
     "jquery-mask-plugin": "^1.14.16",
+    "swiper": "^11.2.7",
     "validate.js": "^0.13.1",
     "wow.js": "^1.2.2",
     "wowjs": "^1.1.3"

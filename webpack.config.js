@@ -32,7 +32,7 @@ module.exports = {
                 // { from: "./node_modules/admin-lte/dist/css/adminlte.min.css", to: "css" },
                 // { from: "./node_modules/bootstrap/dist/css/bootstrap.min.css", to: "css" },
                 // { from: "./node_modules/admin-lte//plugins/icheck-bootstrap/icheck-bootstrap.min.css", to: "css" },
-                // { from: "./node_modules/admin-lte/dist/js/adminlte.min.js", to: "js" },
+                { from: "./node_modules/swiper/swiper-bundle.min.js", to: "js" },
                 { from: "./node_modules/jquery/dist/jquery.min.js", to: "js" },
                 // { from: "./node_modules/bootstrap/dist/js/bootstrap.bundle.js", to: "js" },
                 { from: "./src/static/fonts", to: "fonts" },

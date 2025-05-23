@@ -103,53 +103,75 @@
   <div class="order">
     <div class="main-container order-container">
       <div class="order-content">
-        <form class="order-form">
-          <div class="order-input">
-            <input
-              type="text"
-              class="form-control name"
-              id="name"
-              name="name"
-              placeholder="Имя"
-              required
-            />
-            <div class="invalid-feedback">Введите ваше имя.</div>
-          </div>
-          <div class="order-input">
-            <input
-              type="text"
-              class="form-control phone"
-              id="phone"
-              name="phone"
-              placeholder="Телефон"
-              required
-            />
-            <div class="invalid-feedback">Введите ваш телефон</div>
-          </div>
-          <div class="order-input">
-            <input
-              type="email"
-              class="form-control phone"
-              id="email"
-              name="email"
-              placeholder="e-mail"
-              required
-            />
-            <div class="invalid-feedback">Введите ваш e-mail</div>
-          </div>
-          <textarea name="description" id="description"  class="description" placeholder="Краткое описание желаемого" cols="30" rows="10"></textarea>
-          <div class="order-input-file">
-            <div id="drop-area" class="upload-zone">
-                <p>Перетащите файл сюда</p>
+        <form class="order-form" enctype="multipart/form-data">
+            <div class="order-input">
+              <input type="text" class="form-control name" id="name" name="name" placeholder="Имя" required />
+              <div class="invalid-feedback">Введите ваше имя.</div>
+            </div>
+            <div class="order-input">
+              <input type="text" class="form-control phone" id="phone" name="phone" placeholder="Телефон" required />
+              <div class="invalid-feedback">Введите ваш телефон</div>
+            </div>
+            <div class="order-input">
+              <input type="email" class="form-control email" id="email" name="email" placeholder="e-mail" required />
+              <div class="invalid-feedback">Введите ваш e-mail</div>
+            </div>
+            <textarea name="orderDescription" id="description" class="description" placeholder="Краткое описание желаемого" cols="30" rows="10"></textarea>
+            <div class="order-input-file">
+              <div id="drop-area" class="upload-zone">
+                <p>Сюда можно поместить макет и ТЗ </p>
+                <input type="file" id="fileElem" name="files" multiple style="display:none" />
+                <div id="file-list"></div>
               </div>
-              <label for="fileElem" class="form-upload__label">
-                <span>Или выберите файл:</span>
-                <input type="file" id="fileElem" name="file" style="display:none" />
-              </label>
-          </div>
-          <button type="submit" class="button">Отправить заказ</button>
-        </form>
+              <button type="button" class="button" id="fileSelectBtn">Прикрепить файл(ы)</button>
+
+            </div>
+            <button type="submit" class="button">Отправить заказ</button>
+          </form>
    
+          <div class="slider">
+            <swiper-container
+            effect="cube"
+            grab-cursor="true"
+            cube-effect-shadow="true"
+            cube-effect-slide-shadows="true"
+            cube-effect-shadow-offset="20"
+            cube-effect-shadow-scale="0.94"
+            autoplay-delay="2600"
+            autoplay-pause-on-mouse-enter="true"
+            pagination="true"
+            class="mySwiper"
+          >
+            <swiper-slide><img src="images/slide1.png" /></swiper-slide>
+            <swiper-slide><img src="images/slide2.png" />  </swiper-slide>
+            <swiper-slide><img src="images/slide3.png" /></swiper-slide>
+            <swiper-slide><img src="images/slide3.png" /></swiper-slide>
+          </swiper-container>
+            
+          <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="images/slide1.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/slide2.png" />    
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/slide3.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/slide4.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/slide5.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="images/slide6.png" />
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+          </div>
 
       </div>
     </div>
