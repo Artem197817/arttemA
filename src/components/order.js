@@ -1,31 +1,34 @@
-//import Swiper, { EffectCube, Pagination, Autoplay } from 'swiper';
-import { register } from 'swiper/element/bundle';
-register();
+
+import Swiper from 'swiper';
 import 'swiper/css';
+import 'swiper/css/effect-cube';
+import config from "../../config/config";
+
+
 
 export class Order {
     constructor() {
 
       this.initForm();  
       
-/** var swiper = new Swiper(".mySwiper", {
+ const swiper = new Swiper(".mySwiper", {
         effect: "cube",
         grabCursor: true,
+   loop: true,
+   speed: 1000,
         cubeEffect: {
           shadow: true,
-          slideShadows: true,
-          shadowOffset: 20,
-          shadowScale: 0.94,
+          slideShadows: false,
+          shadowOffset: 60,
+          shadowScale: 1,
         },
         autoplay: {
             delay: 2600,
             pauseOnMouseEnter: true,
         },
-        pagination: {
-          el: ".swiper-pagination",
-        },
+
       });
- */
+
     }
   
     initForm() {
@@ -117,7 +120,7 @@ export class Order {
         formData.append('data', new Blob([JSON.stringify(data)], { type: 'application/json' }));
         filesToUpload.forEach(file => formData.append('files', file));
   
-        fetch('/order/dto/submitOrder', {
+        fetch(config.host +'/order/dto/submitOrder', {
           method: 'POST',
           body: formData
         })
