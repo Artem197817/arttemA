@@ -13,6 +13,7 @@
           <rect y="60" width="100" height="15" fill="#fbf5b6" rx="3"></rect>
         </svg>
       </div>
+
       <a href="#title" class="logo wow animate__rollIn">
         <img src="images/logoa.png" alt="logo" />
       </a>
@@ -74,10 +75,10 @@
                 <a href="#title" class="menu-item-link">Главная</a>
               </li>
               <li class="menu-item hvr-float-shadow wow animate__zoomIn">
-                <a href="#advantages" class="menu-item-link">Почему</a>
+                <a href="#/#advantages" class="menu-item-link">Почему</a>
               </li>
               <li class="menu-item wow animate__zoomIn">
-                <a href="#portfolio" class="menu-item-link hvr-float-shadow"
+                <a href="#/#portfolio" class="menu-item-link hvr-float-shadow"
                   >Портфолио</a
                 >
               </li>
@@ -104,58 +105,82 @@
     <div class="main-container order-container">
       <div class="order-content">
         <form class="order-form" enctype="multipart/form-data">
-            <div class="order-input">
-              <input type="text" class="form-control name" id="name" name="name" placeholder="Имя" required />
-              <div class="invalid-feedback">Введите ваше имя.</div>
-            </div>
-            <div class="order-input">
-              <input type="text" class="form-control phone" id="phone" name="phone" placeholder="Телефон" required />
-              <div class="invalid-feedback">Введите ваш телефон</div>
-            </div>
-            <div class="order-input">
-              <input type="email" class="form-control email" id="email" name="email" placeholder="e-mail" required />
-              <div class="invalid-feedback">Введите ваш e-mail</div>
-            </div>
-            <textarea name="orderDescription" id="description" class="description" placeholder="Краткое описание желаемого" cols="30" rows="10"></textarea>
-            <div class="order-input-file">
-              <div id="drop-area" class="upload-zone">
-                <p>Сюда можно поместить макет и ТЗ </p>
-                <input type="file" id="fileElem" name="files" multiple style="display:none" />
-                <div id="file-list"></div>
-              </div>
-              <button type="button" class="button" id="fileSelectBtn">Прикрепить файл(ы)</button>
-
-            </div>
-            <button type="submit" class="button">Отправить заказ</button>
-          </form>
-   
-          <div class="slider">
-
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img src="images/slide1" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/slide2" />    
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/slide3" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/slide4" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/slide5" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="images/slide6" />
-                  </div>
-                </div>
-                <div class="swiper-pagination"></div>
-              </div>
+          <div class="order-input">
+            <input
+              type="text"
+              class="form-control name"
+              id="name"
+              name="name"
+              placeholder="Имя"
+              required
+            />
+            <div class="invalid-feedback">Введите ваше имя.</div>
           </div>
+          <div class="order-input">
+            <input
+              type="text"
+              class="form-control phone"
+              id="phone"
+              name="phone"
+              placeholder="Телефон"
+              required
+            />
+            <div class="invalid-feedback">Введите ваш телефон</div>
+          </div>
+          <div class="order-input">
+            <input
+              type="email"
+              class="form-control email"
+              id="email"
+              name="email"
+              placeholder="e-mail"
+              required
+            />
+            <div class="invalid-feedback">Введите ваш e-mail</div>
+          </div>
+          <textarea
+            name="orderDescription"
+            id="description"
+            class="description"
+            placeholder="Краткое описание желаемого"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <div class="order-input-file">
+            <div id="drop-area" class="upload-zone">
+              <p>Сюда можно поместить макет и ТЗ</p>
+              <input
+                type="file"
+                id="fileElem"
+                name="files"
+                multiple
+                style="display: none"
+              />
+              <div id="file-list"></div>
+            </div>
+            <button type="button" class="button hvr-float-shadow" id="fileSelectBtn">
+              Прикрепить файл(ы)
+            </button>
+          </div>
+          <button type="submit" class="button hvr-float-shadow">Отправить заказ</button>
+        </form>
 
+        <div class="slider">
+          <div id="carousel">
+            <div id="drag-container">
+              <div id="spin-container">
+                <img src="images/slide1.png" />
+                <img src="images/slide2.png" />
+                <img src="images/slide3.png" />
+                <img src="images/slide4.png" />
+                <img src="images/slide5.png" />
+                <img src="images/slide6.png" />
+                <p>ArtemA</p>
+              </div>
+              <div id="ground"></div>
+            </div>
+          </div>
+        
       </div>
     </div>
   </div>

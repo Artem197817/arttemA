@@ -1,5 +1,9 @@
-import {Main} from "./components/main";
-import {Order} from "./components/order";
+import {
+    Main
+} from "./components/main";
+import {
+    Order
+} from "./components/order";
 
 export class Router {
 
@@ -9,8 +13,7 @@ export class Router {
         this.contentElement = document.getElementById('content');
         this.linkStyles = document.getElementById('styles');
 
-        this.routes = [
-            {
+        this.routes = [{
                 route: '#/',
                 title: 'Главная',
                 template: '/templates/main.html',
@@ -30,95 +33,7 @@ export class Router {
                 load: () => {
                     new Order();
                 }
-
-            },
-            // {
-            //     route: '#/404',
-            //     title: 'Page Not Found',
-            //     useLayout: false,
-            //     useSecondLayout:false,
-            //     template: '/templates/pages/404.html',
-            // },
-            // {
-            //     route: '#/login',
-            //     title: 'Login',
-            //     useLayout: false,
-            //     useSecondLayout: false,
-            //     template: '/templates/pages/login.html',
-            //     load: () => {
-            //
-            //         new Login(this.openNewRoute.bind(this));
-            //     },
-            //     unload: () => {
-            //         document.body.classList.remove('login-page');
-            //         document.body.style.height = 'auto';
-            //     },
-            //     styles: [
-            //         // 'icheck-bootstrap.min.css'
-            //     ]
-            // },
-            // {
-            //     route: '#/sign-up',
-            //     title: 'Sign Up',
-            //     template: '/templates/pages/sign-up.html',
-            //     useLayout: false,
-            //     useSecondLayout: false,
-            //     load: () => {
-            //
-            //         new SignUp();
-            //     },
-            //     unload: () => {
-            //         document.body.classList.remove('register-page');
-            //         document.body.style.height = 'auto';
-            //     },
-            //     styles: [
-            //         // 'icheck-bootstrap.min.css'
-            //     ]
-            // },
-            // {
-            // route: '#/logout',
-            //     load: () => {
-            //     new Logout();
-            //     }
-            // },
-            // {
-            //     route: '#/income',
-            //     title: 'Доходы',
-            //     template: '/templates/pages/finance.html',
-            //     useLayout: '/templates/layout.html',
-            //     useSecondLayout: false,
-            //     requiresAuth: true,
-            //     load: () => {
-            //         new Layout();
-            //         new Income();
-            //     },
-            //     unload: () => {
-            //
-            //     },
-            //     styles: [
-            //         'finance.css'
-            //     ]
-            // },
-            // {
-            //     route: '#/expenses',
-            //     title: 'Расходы',
-            //     template: '/templates/pages/finance.html',
-            //     useLayout: '/templates/layout.html',
-            //     useSecondLayout: false,
-            //     requiresAuth: true,
-            //     load: () => {
-            //         new Layout();
-            //         new Expenses();
-            //     },
-            //     unload: () => {
-            //
-            //     },
-            //     styles: [
-            //         'finance.css'
-            //     ]
-            // },
-            //
-
+            }
         ];
     }
     async openRoute() {
@@ -154,7 +69,7 @@ export class Router {
 
                 contentBlock.innerHTML = await layoutResponse.text();
                 contentBlock = document.getElementById('content-layout');
-                if(route.useSecondLayout) {
+                if (route.useSecondLayout) {
                     const layoutResponse = await fetch(route.useSecondLayout);
                     if (!layoutResponse.ok) throw new Error('Failed to load layout');
 
